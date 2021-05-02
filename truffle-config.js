@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require('dotenv').config();
 
-const { TEST_ENDPOINT, WALLET_MNEMONIC } = process.env;
+const { INFURA_ENDPOINT, WALLET_INDEX, WALLET_MNEMONIC } = process.env;
 
 module.exports = {
   contracts_build_directory: './build/contracts',
@@ -16,9 +16,19 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           mnemonic: WALLET_MNEMONIC,
-          providerOrUrl: TEST_ENDPOINT,
+          providerOrUrl: INFURA_ENDPOINT,
+          addressIndex: WALLET_INDEX,
         }),
       network_id: 3,
+    },
+    mainnet: {
+      provider: () =>
+        new HDWalletProvider({
+          mnemonic: WALLET_MNEMONIC,
+          providerOrUrl: INFURA_ENDPOINT,
+          addressIndex: WALLET_INDEX,
+        }),
+      network_id: 1,
     },
   },
   compilers: {
