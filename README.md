@@ -5,7 +5,8 @@
 #### Clone the repository
 
 ```sh
-$ git clone git@github.com:jpangelle/boosh-coin.git
+$ git clone https://github.com/jpangelle/boosh-coin.git
+$ cd boosh-coin
 ```
 
 #### Create .env
@@ -13,7 +14,7 @@ $ git clone git@github.com:jpangelle/boosh-coin.git
 Create a `.env` file in the root of your repository (You can use [Infura](https://infura.io) to spin up an endpoint):
 
 ```sh
-INFURA_ENDPOINT=<endpoint>
+INFURA_ENDPOINT=<infura-network-endpoint>
 PRIVATE_KEY=<private-key>
 ```
 

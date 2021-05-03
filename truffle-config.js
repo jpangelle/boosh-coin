@@ -4,6 +4,9 @@ require('dotenv').config();
 
 const { INFURA_ENDPOINT, PRIVATE_KEY } = process.env;
 
+const gasPrice = 20 * 1_000_000_000; // Gwei
+const gasLimit = 2_000_000;
+
 module.exports = {
   contracts_build_directory: './build/contracts',
   networks: {
@@ -19,6 +22,7 @@ module.exports = {
           providerOrUrl: INFURA_ENDPOINT,
         }),
       network_id: 3,
+      gasPrice,
     },
     mainnet: {
       provider: () =>
@@ -27,10 +31,8 @@ module.exports = {
           providerOrUrl: INFURA_ENDPOINT,
         }),
       network_id: 1,
-      // based on gas used on the ropsten deployment plus some extra in case
-      // https://ropsten.etherscan.io/tx/0x035611d8613416a8861a0ff8503a9925190b80d0e486fd6f210d9e0d137664bc
-      gas: 2_000_000,
-      gasPrice: 20_000_000_000, // 20 Gwei
+      gas: gasLimit,
+      gasPrice,
     },
   },
   compilers: {
