@@ -14,8 +14,7 @@ Create a `.env` file in the root of your repository (You can use [Infura](https:
 
 ```sh
 INFURA_ENDPOINT=<endpoint>
-WALLET_INDEX=<wallet-index>
-WALLET_MNEMONIC=<wallet-mnemonic>
+PRIVATE_KEY=<private-key>
 ```
 
 #### Install dependencies

@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require('dotenv').config();
 
-const { INFURA_ENDPOINT, WALLET_INDEX, WALLET_MNEMONIC } = process.env;
+const { INFURA_ENDPOINT, PRIVATE_KEY } = process.env;
 
 module.exports = {
   contracts_build_directory: './build/contracts',
@@ -15,18 +15,16 @@ module.exports = {
     testnet: {
       provider: () =>
         new HDWalletProvider({
-          mnemonic: WALLET_MNEMONIC,
+          privateKeys: [PRIVATE_KEY],
           providerOrUrl: INFURA_ENDPOINT,
-          addressIndex: WALLET_INDEX,
         }),
       network_id: 3,
     },
     mainnet: {
       provider: () =>
         new HDWalletProvider({
-          mnemonic: WALLET_MNEMONIC,
+          privateKeys: [PRIVATE_KEY],
           providerOrUrl: INFURA_ENDPOINT,
-          addressIndex: WALLET_INDEX,
         }),
       network_id: 1,
       // based on gas used on the ropsten deployment plus some extra in case
